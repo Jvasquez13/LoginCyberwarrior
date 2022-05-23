@@ -15,6 +15,8 @@
         die();
     }
 
+
+
 ?>
 
 
@@ -27,6 +29,7 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Bienvenidos</h1>
+    <h1>Bienvenidos a CyberWarrior</h1>
 </body>
+<a href="cerrar_session.php" > Cerrar sessión</a>
 </html>

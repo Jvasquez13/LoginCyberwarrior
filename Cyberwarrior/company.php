@@ -1,28 +1,3 @@
-<?php
-
-    session_start();
-
-    if(!isset($_SESSION['usuario'])){
-
-        echo '
-            <script>
-                alert("Por favor debes iniciar sesión") 
-                window.location = "../cyberwarrior/index.php"; 
-            </script>
-        ';        
-        session_destroy();
-    die();
-    }
-
-    $rol = $_SESSION['rol'];
-    if($rol == 1){
-        header("location:admin.php");
-    }
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,37 +23,30 @@
     <div class="menu__side" id="menu__side">
 
         <div class="name__page">
-            <i class="fa-solid fa-user"></i>
-            <h4><?php echo $_SESSION["nombre"]?></h4>
+            <i class="fa-solid fa-user-shield"></i>
+            <h4>Admin</h4>
         </div>
 
         <div class="options__menu">
 
-            <a href="" class="selected">
+            <a href="admin.php" class="">
                 <div class="option">
                     <i class="fas fa-home" title="Home"></i>
                     <h4>Home</h4>
                 </div>
             </a>
 
-            <a href="cuentas.php">
+            <a href="users.php">
                 <div class="option">
-                    <i class="fa-solid fa-wallet" title="Cuentas"></i>
-                    <h4>Accounts</h4>
+                    <i class="fa-solid fa-users" title="Users"></i>
+                    <h4>Users</h4>
                 </div>
             </a>
 
-            <a href="company.php" >
+            <a href="company.php" class="selected">
                 <div class="option">
-                    <i class="fa-solid fa-money-bills" title="Prestamos"></i>
-                    <h4>Loans</h4>
-                </div>
-            </a>
-
-            <a href="company.php" >
-                <div class="option">
-                    <i class="fa-solid fa-credit-card" title="Tarjetas"></i>
-                    <h4>Cards</h4>
+                    <i class="fa-solid fa-building" title="Company"></i>
+                    <h4>Company</h4>
                 </div>
             </a>
 
@@ -87,7 +55,10 @@
     </div>
 
     <main>
-        <h1>Welcome back, <?php echo $_SESSION["nombre"]?>!!!</h1><br>
+        <h1>Title Example</h1><br>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, voluptates.
+           Quod voluptate reprehenderit accusamus voluptatibus. Odit harum, eius perspiciatis iusto 
+           error consectetur sint, nisi unde obcaecati enim et autem cumque?</p>
     </main>
     <script src="assets/js/scriptAdmin.js"></script>
 </body>

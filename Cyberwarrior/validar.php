@@ -3,21 +3,34 @@
     $email = $_POST["email"];
     $password = $_POST["password"];
 
+
     session_start();
     
 
     include('db.php');
 
-    $consulta = "SELECT * FROM usuarios where email = '$email' and password = '$password'";
+    $consulta = "SELECT id, nombre, email, usuario, rol, status FROM usuarios where email = '$email' and password = '$password'";
     $resultado =mysqli_query($conexion,$consulta);
-
     $filas= mysqli_num_rows($resultado);
 
+
     if($filas > 0){
-        $_SESSION['usuario'] = $email;
+        $row = $resultado ->fetch_assoc();
+
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['usuario'] = $row['usuario'];
+        $_SESSION['rol'] = $row['rol'];
+        $_SESSION['status'] = $row['status'];
+      
+    }
+    if($_SESSION['status'] == 1){
+
         header("Location:home.php");
         exit();
-    }else{
+    }
+    else{
 
         echo '
         

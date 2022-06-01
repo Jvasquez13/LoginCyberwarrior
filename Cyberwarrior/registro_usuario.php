@@ -6,9 +6,11 @@
     $email = $_POST['email'];
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
+    $rol = 2;
+    $status = 1;
 
-    $query = "INSERT INTO usuarios (nombre, email, usuario, password) 
-    VALUES ('$nombre', '$email', '$usuario', '$password')";
+    $query = "INSERT INTO usuarios (nombre, email, usuario, password, rol, status) 
+    VALUES ('$nombre', '$email', '$usuario', '$password', '$rol', '$status')";
 
     //verificar que el correo no se repita en la base de datos
 

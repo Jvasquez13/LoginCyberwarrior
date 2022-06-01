@@ -9,12 +9,15 @@
                 alert("Por favor debes iniciar sesión") 
                 window.location = "../cyberwarrior/index.php"; 
             </script>
-        ';
-        
+        ';        
         session_destroy();
-        die();
+    die();
     }
 
+    $rol = $_SESSION['rol'];
+    if($rol == 1){
+        header("location:admin.php");
+    }
 
 
 ?>

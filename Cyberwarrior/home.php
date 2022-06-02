@@ -14,6 +14,11 @@
     die();
     }
 
+    $rol = $_SESSION['rol'];
+
+    if($rol == 1){
+        header('location: admin.php');
+    }
 
 ?>
 
@@ -34,11 +39,6 @@
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
 
-        <a href="cerrar_session.php">
-        <div class="icon__exit">
-            <i class="fa-solid fa-arrow-right-from-bracket" title = "Close Session"></i>
-        </div>
-        </a>
     </header>
     <div class="menu__side" id="menu__side">
 

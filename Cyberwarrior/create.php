@@ -31,12 +31,6 @@ die();
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-
-        <a href="cerrar_session.php">
-        <div class="icon__exit">
-            <i class="fa-solid fa-arrow-right-from-bracket" title = "Close Session"></i>
-        </div>
-        </a>
     </header>
     <div class="menu__side" id="menu__side">
 
@@ -67,13 +61,6 @@ die();
                     <h4>Users</h4>
                 </div>
             </a>
-
-            <a href="company.php" >
-                <div class="option">
-                    <i class="fa-solid fa-building" title="Company"></i>
-                    <h4>Company</h4>
-                </div>
-            </a>
             
             <a href="cerrar_session.php">
             <div class="option">
@@ -90,12 +77,12 @@ die();
         
         <section class="container_admin">
             <img src="../Cyberwarrior/assets/img/logo.png" class="avatar" srcset="">
-            <h1>User registration</h1>
+            <h1>User Registration</h1>
             <form action="agregar.php" method="POST">
-                <input type="text" class="itext" placeholder="Full Name" name="nombre">
-                <input type="text" class="itext" placeholder="Email"name="email">
-                <input type="text" class="itext" placeholder="Username" name="usuario">
-                <input type= "password" class="itext" placeholder="Password" name="password"><br>
+                <input type="text" class="itext" placeholder="Full Name" name="nombre" required>
+                <input type="text" class="itext" placeholder="Email"name="email" required>
+                <input type="text" class="itext" placeholder="Username" name="usuario" required>
+                <input type= "password" class="itext" placeholder="Password" name="password" required><br>
                 <label for="rol">Rol:</label>
                 <select name="rol" class="itext">
                 <option value="1">Administrator</option>
@@ -106,7 +93,7 @@ die();
                 <option value="1">Active</option>
                 <option value="0">Desactivate</option>
                 </select><br>
-                <input type="submit" class="btnRegistrar" value="Registrarse"/>
+                <input type="submit" class="btnRegistrar" value="Register"/>
             </form>
         </section>
             

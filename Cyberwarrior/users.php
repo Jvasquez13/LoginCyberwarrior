@@ -21,9 +21,9 @@ die();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
+    
     <link rel="stylesheet" href="assets/css/estilosAdmin.css">
     <script src="https://kit.fontawesome.com/a539cc141c.js" crossorigin="anonymous"></script>
 </head>
@@ -33,11 +33,6 @@ die();
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
 
-        <a href="cerrar_session.php">
-        <div class="icon__exit">
-            <i class="fa-solid fa-arrow-right-from-bracket" title = "Close Session"></i>
-        </div>
-        </a>
     </header>
     <div class="menu__side" id="menu__side">
 
@@ -69,12 +64,7 @@ die();
                 </div>
             </a>
 
-            <a href="company.php" >
-                <div class="option">
-                    <i class="fa-solid fa-building" title="Company"></i>
-                    <h4>Company</h4>
-                </div>
-            </a>
+
             <a href="cerrar_session.php">
             <div class="option">
                 <i class="fa-solid fa-arrow-right-from-bracket" title = "Exit"></i>
@@ -86,49 +76,55 @@ die();
     </div>
 
     <main>
-        <div class="container mt-0">
-        <div class="row">
-
-            <div class="col-md-12">
-                <table class="table">
-                    <thead class="table-danger table-striped">
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Rol</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            include('db.php');
-                            $sql = "SELECT * from usuarios";
-                            $query = mysqli_query($conexion,$sql);
-                            while($row=mysqli_fetch_array($query)){
-                        ?>
-                        <tr>
-                            <th><?php echo $row['id']?></th>
-                            <th><?php echo $row['nombre']?></th>
-                            <th><?php echo $row['email']?></th>
-                            <th><?php echo $row['usuario']?></th>
-                            <th><?php echo $row['password']?></th>
-                            <th><?php echo $row['rol']?></th>
-                            <th><?php echo $row['status']?></th>
-                            <th><a href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger">Delete</a></th>
-                        </tr>
-                        <?php
-                            }
-                        ?>
-                    </tbody>
-                </table>
+    
+        <div class="container__Tabla">
+            <div class="tabla__header">
+                <h2>Banking Users</h2>
+                <a href="create.php"><button>New User</button></a>
+                <img src="../Cyberwarrior/assets/img/logo.png" class="avatar" srcset="">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Rol</th>
+                                <th>Status</th>
+                             </tr>
+                        </thead>
+                            <tbody>
+                            <?php
+                                include('db.php');
+                                $sql = "SELECT * from usuarios";
+                                $query = mysqli_query($conexion,$sql);
+                                while($row=mysqli_fetch_array($query)){
+                                    $rowcount = mysqli_num_rows($query);
+                            ?>
+                             <tr>
+                                <th><?php echo $row['id']?></th>
+                                <th><?php echo $row['nombre']?></th>
+                                <th><?php echo $row['email']?></th>
+                                <th><?php echo $row['usuario']?></th>
+                                <th><?php echo $row['password']?></th>
+                                <th><?php echo $row['rol']?></th>
+                                <th><?php echo $row['status']?></th>
+                                <th><a href="delete.php?id=<?php echo $row['id']?>"> <i class="fa-solid fa-person-circle-minus" id="icons"></i></a></th>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                            </tbody>
+                    </table>
+                    <div class="tabla__footer">
+                        <p> Total of users:  <?php print $rowcount?>
+                    </div>
+                </div>
             </div>
-        </div>
        </div>
     </main>
+    
     <script src="assets/js/scriptAdmin.js"></script>
-</body>
-
+</body> 
 </html>

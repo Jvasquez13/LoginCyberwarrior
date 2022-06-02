@@ -62,12 +62,6 @@ die();
                 </div>
             </a>
 
-            <a href="company.php" >
-                <div class="option">
-                    <i class="fa-solid fa-building" title="Company"></i>
-                    <h4>Company</h4>
-                </div>
-            </a>
 
             <a href="cerrar_session.php">
             <div class="option">

@@ -14,11 +14,6 @@
     die();
     }
 
-    $rol = $_SESSION['rol'];
-    if($rol == 1){
-        header("location:admin.php");
-    }
-
 
 ?>
 
@@ -81,7 +76,12 @@
                     <h4>Cards</h4>
                 </div>
             </a>
-
+            <a href="cerrar_session.php">
+            <div class="option">
+                <i class="fa-solid fa-arrow-right-from-bracket" title = "Exit"></i>
+                <h4>Exit</h4>
+            </div>
+            </a>
         </div>
 
     </div>

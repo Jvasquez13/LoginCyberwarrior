@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+
+    echo '
+        <script>
+            alert("Por favor debes iniciar sesión") 
+            window.location = "../cyberwarrior/index.php"; 
+        </script>
+    ';        
+    session_destroy();
+die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +54,12 @@
                 </div>
             </a>
 
+            <a href="create.php" >
+                <div class="option">
+                    <i class="fa-solid fa-user-plus" title="Create"></i>
+                    <h4>Create</h4>
+                </div>
+
             <a href="users.php">
                 <div class="option">
                     <i class="fa-solid fa-users" title="Users"></i>
@@ -48,6 +72,12 @@
                     <i class="fa-solid fa-building" title="Company"></i>
                     <h4>Company</h4>
                 </div>
+            </a>
+            <a href="cerrar_session.php">
+            <div class="option">
+                <i class="fa-solid fa-arrow-right-from-bracket" title = "Exit"></i>
+                <h4>Exit</h4>
+            </div>
             </a>
 
         </div>

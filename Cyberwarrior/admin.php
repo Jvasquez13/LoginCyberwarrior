@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+
+    echo '
+        <script>
+            alert("Por favor debes iniciar sesión") 
+            window.location = "../cyberwarrior/index.php"; 
+        </script>
+    ';        
+    session_destroy();
+die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +30,7 @@
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-
-        <a href="cerrar_session.php">
-        <div class="icon__exit">
-            <i class="fa-solid fa-arrow-right-from-bracket" title = "Close Session"></i>
-        </div>
-        </a>
+ 
     </header>
     <div class="menu__side" id="menu__side">
 
@@ -36,6 +48,13 @@
                 </div>
             </a>
 
+            <a href="create.php">
+                <div class="option">
+                    <i class="fa-solid fa-user-plus" title="Create"></i>
+                    <h4>Create</h4>
+                </div>
+            </a>
+
             <a href="users.php">
                 <div class="option">
                     <i class="fa-solid fa-users" title="Users"></i>
@@ -50,29 +69,19 @@
                 </div>
             </a>
 
+            <a href="cerrar_session.php">
+            <div class="option">
+                <i class="fa-solid fa-arrow-right-from-bracket" title = "Exit"></i>
+                <h4>Exit</h4>
+            </div>
+            </a>
+
         </div>
 
     </div>
 
     <main>
         <h1>Welcome, Administrator!</h1><br>
-        <section>
-                <input type="text" placeholder="Full Name" name="nombre">
-                <input type="text" placeholder="Email"name="email">
-                <input type="text" placeholder="Username" name="usuario">
-                <input type= "password" placeholder="Password" name="password">
-                <label for="rol">Rol:</label>
-                <select name="rol">
-                <option value="1">Administrator</option>
-                <option value="0">User</option>
-                </select>
-                <label for="status">Status:</label>
-                <select name="status">
-                <option value="1">Active</option>
-                <option value="0">Desactivate</option>
-                </select>
-                <button>Registrarse</button>
-        </section>
             
     </main>
     <script src="assets/js/scriptAdmin.js"></script>
